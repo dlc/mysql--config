@@ -1,0 +1,75 @@
+NAME
+    MySQL::Config - Parse and utilize MySQL's /etc/my.cnf and ~/.my.cnf
+    files
+
+SYNOPSIS
+        use MySQL::Config;
+
+        my @groups = qw(client myclient);
+        my $argc = 0;
+        my @argv = ();
+
+        load_defaults "my", @groups, $argc, @argv;
+
+DESCRIPTION
+    MySQL::Config emulates the load_defaults() function from mysqlclient.
+    Just like load_defaults(), it returns a list primed to be passed to
+    getopt_long(), a.k.a. Getopt::Long. load_defaults takes 4 arguments: a
+    string denoting the name of the config file (which should generally be
+    "my"); an array of groups which should be returned; a scalar that will
+    hold the total number of parsed elements; and an array that will hold
+    the final versions of the extracted name, value pairs. This final array
+    will be in a format suitable for processing with Getopt::Long:
+
+        --user=username
+        --password=password
+
+    and so on.
+
+    load_defaults() has an un-Perlish interface, mostly because it is
+    exactly the same signature as the version from the C API. There is also
+    a function, not exported by default, called parse_defaults(), which
+    returns a hash of parsed (name, value) pairs (or a hashref in scalar
+    context):
+
+        use MySQL::Config qw(parse_defaults);
+
+        my %cfg = parse_defaults("my", [ qw(client myclient) ]);
+
+    %cfg looks like:
+
+        %cfg = (
+            "user" => "username",
+            "password" => "password",
+        )
+
+    and so on. This might be a more natural interface for some programs;
+    however, load_defaults() is more true to the original.
+
+USING SOMETHING OTHER THAN "my" AS THE FIRST STRING
+    This string controls the name of the configuration file; the names work
+    out to, basically:
+
+        ~/.${cfg_name}.cnf
+
+    and
+
+        /etc/${cnf_name}.cnf
+
+    If you are using this module for mysql clients, then this should
+    probably remain my. Otherwise, you are free to mangle this however you
+    choose.
+
+        $ini = parse_defaults("your", [ "foo" ]);
+
+BUGS / KNOWN ISSUES
+    The C version of load_defaults() returns elements in the order in which
+    they are defined in the file; this version returns them in hash order,
+    with duplicates removed.
+
+VERSION
+    $Revision: 1.1 $
+
+AUTHOR
+    darren chamberlain <darren@cpan.org>
+

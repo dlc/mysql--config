@@ -1,0 +1,5 @@
+lib/MySQL/Config.pm
+Makefile.PL
+MANIFEST
+t/config.t
+README
