@@ -1,0 +1,38 @@
+This file contains message digests of all files listed in MANIFEST,
+signed via the Module::Signature module, version 0.27.
+
+To verify the content in this distribution, first make sure you have
+Module::Signature installed, then type:
+
+    % cpansign -v
+
+It would check each file's integrity, as well as the signature's
+validity.  If "==> Signature verified OK! <==" is not displayed,
+the distribution may already have been compromised, and you should
+not run its Makefile.PL or Build.PL.
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+SHA1 f013456078386c3cbf885e75ebdc53d7177446f6 Changes
+SHA1 62492bf3469ab095f1a25d236f092b5bf55b6483 MANIFEST
+SHA1 59fe16e376c6ee441f6267946c4ab8007a6e8a29 META.yml
+SHA1 0149c0394131542946608abef2a07dad3d83af4d Makefile.PL
+SHA1 e95cdbd6b7013ef52ac92a9f57101bd91a1d9691 README
+SHA1 4d554de47dfb9c63fa832355995728ba5a51f17c lib/MySQL/Config.pm
+SHA1 e39b4fe7f9d89e5be7097580a1dcbdfe59463bf5 t/00load.t
+SHA1 13cad91846a2fe9ebb6b1b86bc8aaded7b7a1751 t/01pod.t
+SHA1 79014344975119e8d7a3a9cb9b8b7ec4704f5f10 t/02config.t
+SHA1 5947f771d95a381753687657f0037ed3bbfef3c7 t/03argv.t
+SHA1 93ab23bc5321edcc99dbab7542802887499f6cbb t/04undef.t
+SHA1 ea96acfef383eff40106250ffe994347e7a622d8 t/05nested.t
+SHA1 ec657412a028d5169b24173c94729e236bca280e t/my.cnf
+SHA1 0bab4a3e494d6af90df2aac17f09ddc5c3fdff71 t/testing.cnf
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.2.3 (GNU/Linux)
+Comment: This message is digitally signed and can be verified for authenticity.
+
+iD8DBQE/cYzIzsinjrVhZaoRAt5OAKCJpFJalIPnxkhcCR1QY5mKeTFOdwCeIyWw
+XucVQg6EnHj1fZ5uYm/KlJ0=
+=18z4
+-----END PGP SIGNATURE-----
