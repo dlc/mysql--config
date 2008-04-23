@@ -1,21 +1,18 @@
 package MySQL::Config;
 
 # ----------------------------------------------------------------------
-# $Id: Config.pm,v 1.2 2003/09/24 12:25:36 dlc Exp $ 
-# ----------------------------------------------------------------------
 # MySQL::Config - 
 # Copyright (C) 2003 darren chamberlain <darren@cpan.org>
 # ----------------------------------------------------------------------
 
 use strict;
 use base qw(Exporter);
-use vars qw($VERSION $REVISION $GLOBAL_CNF @EXPORT @EXPORT_OK);
+use vars qw($VERSION $GLOBAL_CNF @EXPORT @EXPORT_OK);
 
 use Carp qw(carp);
 use File::Spec;
 
 $VERSION    = '1.03';
-$REVISION   = sprintf "%d.%02d", q$Revision: 1.2 $ =~ /(\d+)\.(\d+)/;
 $GLOBAL_CNF = "/etc/%s.cnf" unless defined $GLOBAL_CNF;
 @EXPORT     = qw(load_defaults);
 @EXPORT_OK  = qw(parse_defaults);
@@ -291,7 +288,7 @@ C<MySQL::Config> is supported by the author.
 
 =head1 VERSION
 
-This is C<MySQL::Config>, revision $Revision: 1.2 $.
+This is C<MySQL::Config>, version 1.03.
 
 =head1 AUTHOR
 
