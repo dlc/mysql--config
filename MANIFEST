@@ -12,3 +12,4 @@ t/04undef.t
 t/my.cnf
 t/testing.cnf
 t/05nested.t t/config.t
+.travis.yml
